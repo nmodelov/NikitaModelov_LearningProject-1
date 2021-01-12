@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id "org.jetbrains.kotlin.kapt"
 }
 
 android {
@@ -30,6 +31,9 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    kapt {
+        correctErrorTypes true
+    }
 }
 
 dependencies {
@@ -39,7 +43,37 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    testImplementation 'junit:junit:4.+'
+
+    //Cicerone
+    implementation "com.github.terrakok:cicerone:6.6"
+
+    //MviKotlin
+    def mviKotlinVersion = "2.0.0"
+    implementation "com.arkivanov.mvikotlin:mvikotlin:${mviKotlinVersion}"
+    implementation "com.arkivanov.mvikotlin:mvikotlin-main:${mviKotlinVersion}"
+    implementation "com.arkivanov.mvikotlin:mvikotlin-logging:${mviKotlinVersion}"
+    implementation "com.arkivanov.mvikotlin:mvikotlin-extensions-coroutines:${mviKotlinVersion}"
+
+    //Coroutines
+    def coroutinesVersion = "1.4.2"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${coroutinesVersion}"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:${coroutinesVersion}"
+
+    //Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+
+    //Http client
+    implementation 'com.squareup.okhttp3:okhttp:4.9.0'
+
+    //Json parser
+    implementation 'com.squareup.moshi:moshi:1.11.0'
+
+    //Dagger
+    def daggerVersion = "2.30.1-alpha"
+    implementation "com.google.dagger:hilt-android:${daggerVersion}"
+    kapt "com.google.dagger:hilt-android-compiler:${daggerVersion}"
+
+    testImplementation 'junit:junit:4.13.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 }
