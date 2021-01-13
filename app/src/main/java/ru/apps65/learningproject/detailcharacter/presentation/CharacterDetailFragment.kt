@@ -1,10 +1,10 @@
-package ru.apps65.learningproject.presentation.detailcharacter
+package ru.apps65.learningproject.detailcharacter.presentation
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import ru.apps65.learningproject.databinding.FragmentDetailCharacterBinding
-import ru.apps65.learningproject.presentation.common.BaseFragment
+import ru.apps65.learningproject.common.BaseFragment
 import ru.apps65.learningproject.utils.getRouter
 
 class CharacterDetailFragment: BaseFragment<FragmentDetailCharacterBinding>() {
@@ -16,7 +16,7 @@ class CharacterDetailFragment: BaseFragment<FragmentDetailCharacterBinding>() {
     ): FragmentDetailCharacterBinding = FragmentDetailCharacterBinding.inflate(inflater, container, false)
 
     override fun otherSetups() {
-        binding.backButton.setOnClickListener {
+        binding?.backButton?.setOnClickListener {
             getRouter().exit()
         }
     }

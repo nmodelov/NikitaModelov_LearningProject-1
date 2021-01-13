@@ -1,4 +1,4 @@
-package ru.apps65.learningproject
+package ru.apps65.learningproject.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,8 +7,10 @@ import androidx.fragment.app.FragmentTransaction
 import com.github.terrakok.cicerone.Command
 import com.github.terrakok.cicerone.Replace
 import com.github.terrakok.cicerone.androidx.AppNavigator
+import ru.apps65.learningproject.App
+import ru.apps65.learningproject.R
+import ru.apps65.learningproject.characters.presentation.charactersScreen
 import ru.apps65.learningproject.databinding.ActivityMainBinding
-import ru.apps65.learningproject.presentation.screens.Screens
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        navigator.applyCommands(arrayOf<Command>(Replace(Screens.CharactersScreen())))
+        navigator.applyCommands(arrayOf<Command>(Replace(charactersScreen())))
     }
 
     override fun onResume() {
