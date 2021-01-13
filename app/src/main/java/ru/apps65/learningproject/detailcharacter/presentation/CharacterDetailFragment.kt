@@ -2,18 +2,19 @@ package ru.apps65.learningproject.detailcharacter.presentation
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import ru.apps65.learningproject.databinding.FragmentDetailCharacterBinding
 import ru.apps65.learningproject.common.BaseFragment
-import ru.apps65.learningproject.detailcharacter.data.CharacterDetailRepositoryImpl
+import ru.apps65.learningproject.detailcharacter.di.DaggerCharacterDetailComponent
 import ru.apps65.learningproject.detailcharacter.domain.entity.Character
+import javax.inject.Inject
 
 class CharacterDetailFragment : BaseFragment<FragmentDetailCharacterBinding>(),
     CharactersDetailView {
 
-    private lateinit var presenter: Presenter
+    @Inject
+    lateinit var presenter: Presenter
 
     override fun binding(
         inflater: LayoutInflater,
@@ -23,7 +24,9 @@ class CharacterDetailFragment : BaseFragment<FragmentDetailCharacterBinding>(),
         FragmentDetailCharacterBinding.inflate(inflater, container, false)
 
     override fun otherSetups() {
-        presenter = CharacterDetailPresenter(CharacterDetailRepositoryImpl())
+
+        DaggerCharacterDetailComponent.create().inject(this)
+
         presenter.attach(this)
 
         binding?.backButton?.setOnClickListener {

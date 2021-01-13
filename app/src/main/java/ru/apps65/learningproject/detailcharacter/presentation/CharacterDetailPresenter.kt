@@ -2,8 +2,9 @@ package ru.apps65.learningproject.detailcharacter.presentation
 
 import ru.apps65.learningproject.detailcharacter.domain.entity.Character
 import ru.apps65.learningproject.detailcharacter.domain.repository.CharactersDetailRepository
+import javax.inject.Inject
 
-class CharacterDetailPresenter(
+class CharacterDetailPresenter @Inject constructor(
     private val repository: CharactersDetailRepository
 ) : Presenter {
 
@@ -16,7 +17,7 @@ class CharacterDetailPresenter(
     }
 
     override fun navigateBack() {
-        getRouter().exit()
+        //router.navigateTo(charactersScreen())
     }
 
     override fun attach(view: CharactersDetailView) {
