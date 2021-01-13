@@ -1,5 +1,7 @@
 package ru.apps65.learningproject.detailcharacter.presentation
 
+import com.github.terrakok.cicerone.Router
+import ru.apps65.learningproject.characters.presentation.charactersScreen
 import ru.apps65.learningproject.detailcharacter.domain.entity.Character
 import ru.apps65.learningproject.detailcharacter.domain.repository.CharactersDetailRepository
 import javax.inject.Inject
@@ -7,6 +9,9 @@ import javax.inject.Inject
 class CharacterDetailPresenter @Inject constructor(
     private val repository: CharactersDetailRepository
 ) : Presenter {
+
+    @Inject
+    lateinit var router: Router
 
     private lateinit var character: Character
     private var view: CharactersDetailView? = null
@@ -17,7 +22,8 @@ class CharacterDetailPresenter @Inject constructor(
     }
 
     override fun navigateBack() {
-        //router.navigateTo(charactersScreen())
+        // Тут упадет !!!
+        router.navigateTo(charactersScreen())
     }
 
     override fun attach(view: CharactersDetailView) {
