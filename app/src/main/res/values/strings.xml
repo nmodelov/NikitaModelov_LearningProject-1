@@ -3,4 +3,5 @@
     <string name="detail_character_label">Детали</string>
     <string name="detail_character_button_text">Назад</string>
     <string name="characters_button_text">На детали</string>
+    <string name="character_detail_get_button">Получить персонажа</string>
 </resources>
