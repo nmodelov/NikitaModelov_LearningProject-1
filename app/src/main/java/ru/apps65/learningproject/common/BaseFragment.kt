@@ -1,4 +1,4 @@
-package ru.apps65.learningproject.presentation.common
+package ru.apps65.learningproject.common
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,18 +9,18 @@ import androidx.viewbinding.ViewBinding
 
 abstract class BaseFragment<VB : ViewBinding> : Fragment() {
 
-    private var _binding: VB? = null
-    val binding
-        get() = _binding ?: throw NullPointerException("Binding can't be null")
+    var binding: VB? = null
+        get() = field ?: throw NullPointerException("Binding can't be null")
+        private set
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = binding(inflater, container, savedInstanceState)
+        binding = binding(inflater, container, savedInstanceState)
         otherSetups()
-        return _binding?.root
+        return binding?.root
     }
 
     protected open fun otherSetups() {}
@@ -32,7 +32,7 @@ abstract class BaseFragment<VB : ViewBinding> : Fragment() {
     ): VB
 
     override fun onDestroyView() {
-        _binding = null
+        binding = null
         super.onDestroyView()
     }
 }
