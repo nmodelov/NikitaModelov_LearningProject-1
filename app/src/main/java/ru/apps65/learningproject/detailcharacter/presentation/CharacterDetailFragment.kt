@@ -4,9 +4,9 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import ru.apps65.learningproject.databinding.FragmentDetailCharacterBinding
+import ru.apps65.learningproject.App
 import ru.apps65.learningproject.common.BaseFragment
-import ru.apps65.learningproject.detailcharacter.di.DaggerCharacterDetailComponent
+import ru.apps65.learningproject.databinding.FragmentDetailCharacterBinding
 import ru.apps65.learningproject.detailcharacter.domain.entity.Character
 import javax.inject.Inject
 
@@ -25,7 +25,7 @@ class CharacterDetailFragment : BaseFragment<FragmentDetailCharacterBinding>(),
 
     override fun otherSetups() {
 
-        DaggerCharacterDetailComponent.create().inject(this)
+        App.component.presentationComponent.create().inject(this)
 
         presenter.attach(this)
 

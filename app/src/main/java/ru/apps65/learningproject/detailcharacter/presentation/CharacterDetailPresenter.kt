@@ -7,11 +7,9 @@ import ru.apps65.learningproject.detailcharacter.domain.repository.CharactersDet
 import javax.inject.Inject
 
 class CharacterDetailPresenter @Inject constructor(
-    private val repository: CharactersDetailRepository
+    private val repository: CharactersDetailRepository,
+    private val router: Router
 ) : Presenter {
-
-    @Inject
-    lateinit var router: Router
 
     private lateinit var character: Character
     private var view: CharactersDetailView? = null

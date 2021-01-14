@@ -1,4 +1,4 @@
-package ru.apps65.learningproject
+package ru.apps65.learningproject.di.modules
 
 import com.github.terrakok.cicerone.Cicerone
 import com.github.terrakok.cicerone.NavigatorHolder

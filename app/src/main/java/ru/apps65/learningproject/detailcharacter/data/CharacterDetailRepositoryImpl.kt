@@ -1,9 +1,10 @@
 package ru.apps65.learningproject.detailcharacter.data
 
-import ru.apps65.learningproject.detailcharacter.domain.repository.CharactersDetailRepository
 import ru.apps65.learningproject.detailcharacter.domain.entity.Character
+import ru.apps65.learningproject.detailcharacter.domain.repository.CharactersDetailRepository
+import javax.inject.Inject
 
-class CharacterDetailRepositoryImpl : CharactersDetailRepository {
+class CharacterDetailRepositoryImpl @Inject constructor() : CharactersDetailRepository {
 
     private val charactersList = listOf(
         Character(id = 1, name = "Человек-паук", colorEye = "Зеленые", 25),
