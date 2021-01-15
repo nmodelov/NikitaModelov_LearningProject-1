@@ -20,7 +20,6 @@ class CharacterDetailPresenter @Inject constructor(
     }
 
     override fun navigateBack() {
-        // Тут упадет !!!
         router.navigateTo(charactersScreen())
     }
 

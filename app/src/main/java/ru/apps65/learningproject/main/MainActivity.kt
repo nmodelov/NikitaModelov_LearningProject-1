@@ -6,12 +6,14 @@ import com.github.terrakok.cicerone.Command
 import com.github.terrakok.cicerone.NavigatorHolder
 import com.github.terrakok.cicerone.Replace
 import com.github.terrakok.cicerone.androidx.AppNavigator
+import dagger.hilt.android.AndroidEntryPoint
 import ru.apps65.learningproject.App
 import ru.apps65.learningproject.R
 import ru.apps65.learningproject.databinding.ActivityMainBinding
 import ru.apps65.learningproject.detailcharacter.presentation.characterDetailScreen
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -23,8 +25,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        App.component.presentationComponent.create().inject(this)
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root

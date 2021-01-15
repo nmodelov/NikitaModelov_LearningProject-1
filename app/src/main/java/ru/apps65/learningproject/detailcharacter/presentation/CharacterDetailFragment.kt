@@ -4,12 +4,13 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import ru.apps65.learningproject.App
+import dagger.hilt.android.AndroidEntryPoint
 import ru.apps65.learningproject.common.BaseFragment
 import ru.apps65.learningproject.databinding.FragmentDetailCharacterBinding
 import ru.apps65.learningproject.detailcharacter.domain.entity.Character
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class CharacterDetailFragment : BaseFragment<FragmentDetailCharacterBinding>(),
     CharactersDetailView {
 
@@ -24,8 +25,6 @@ class CharacterDetailFragment : BaseFragment<FragmentDetailCharacterBinding>(),
         FragmentDetailCharacterBinding.inflate(inflater, container, false)
 
     override fun otherSetups() {
-
-        App.component.presentationComponent.create().inject(this)
 
         presenter.attach(this)
 
